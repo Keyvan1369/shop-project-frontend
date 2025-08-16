@@ -15,7 +15,10 @@ export const Header = () => {
           <Link to="/products">Products</Link>
         </li>
 
-        <li className="hover:underline cursor-pointer">Sale</li>
+        <li className="hover:underline cursor-pointer">
+           <Link to="/login">login</Link>
+        </li>
+        
       </ul>
 
       {/* Search bar */}
@@ -39,6 +42,9 @@ export const Header = () => {
             1
           </span>
         </div>
+          <li className="hover:underline cursor-pointer">
+           <Link to="/signup">signup</Link>
+        </li>
       </div>
     </nav>
   );

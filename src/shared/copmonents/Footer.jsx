@@ -22,7 +22,7 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
-        <span className="text-sm text-gray-400 mt-4 md:mt-0">
+        <span className="text-sm text-gray-900 mt-4 md:mt-0">
           © 2023 Keyvan Hojabr™.
         </span>
       </div>
