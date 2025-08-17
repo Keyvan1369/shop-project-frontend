@@ -1,26 +1,24 @@
 import React from "react";
-import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 
-export const Header = () => {
+export const AuthHeader = () => {
   return (
     <nav className="relative flex items-center justify-between px-4 py-2 bg-lime-600 text-white h-14">
-      {/* Left: Logo + Links */}
       <div className="flex items-center gap-6">
         <div className="font-bold text-xl">onlin shop</div>
 
         <ul className="hidden md:flex items-center gap-6">
-          <li className="hover:text-red-400 cursor-pointer">
-            <Link to="/signup">Signup</Link>
-          </li>
+          <ul className="hover:text-red-400 relative group cursor-pointer">
+          <Link to="/">Home</Link>
+        </ul>
 
-          <li className="hover:text-red-400 cursor-pointer">
-            <Link to="/login">Login</Link>
-          </li>
+          <ul className="hover:text-red-400 relative group cursor-pointer">
+            <Link to="/products">Products</Link>
+          </ul>
         </ul>
       </div>
 
-      {/* ABSOLUTE-CENTER Search (no flex-centering) */}
       <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-none z-10">
         <label htmlFor="site-search" className="sr-only">
           Search
@@ -34,14 +32,11 @@ export const Header = () => {
             className="bg-transparent outline-none px-2 py-1 w-full text-black"
           />
         </div>
-        
       </div>
-      
-      {/* Right: Icons */}
+
       <div className="flex items-center gap-4">
-        <ul className="relative group cursor-pointer hover:text-red-400">
-        <Link to="/products">Products</Link>
-      </ul>
+        
+
         <FaHeart className="text-xl cursor-pointer hover:text-red-400" />
         <div className="relative cursor-pointer">
           <FaShoppingCart className="text-xl hover:text-red-400" />

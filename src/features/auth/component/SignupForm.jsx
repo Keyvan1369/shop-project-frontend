@@ -13,7 +13,7 @@ export const SignupForm= () => {
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-yellow-700 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#C8A897] to-lime-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
@@ -90,7 +90,7 @@ export const SignupForm= () => {
                 <div className="relative">
                   <button
                     type="submit"
-                    className="bg-yellow-700 text-white rounded-md px-4 py-2 hover:bg-yellow-800 transition"
+                    className="bg-[#C8A897] text-white rounded-md px-4 py-2 hover:bg-lime-600 transition"
                   >
                     Register
                   </button>
