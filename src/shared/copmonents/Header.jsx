@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <nav className="relative flex items-center justify-between px-4 py-2 bg-lime-600 text-white h-14">
-      {/* Left: Logo + Links */}
+     
       <div className="flex items-center gap-6">
         <div className="font-bold text-xl">onlin shop</div>
 
@@ -20,7 +20,7 @@ export const Header = () => {
         </ul>
       </div>
 
-      {/* ABSOLUTE-CENTER Search (no flex-centering) */}
+     
       <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-none z-10">
         <label htmlFor="site-search" className="sr-only">
           Search
@@ -37,10 +37,13 @@ export const Header = () => {
         
       </div>
       
-      {/* Right: Icons */}
+      
       <div className="flex items-center gap-4">
         <ul className="relative group cursor-pointer hover:text-red-400">
         <Link to="/products">Products</Link>
+      </ul>
+        <ul className="relative group cursor-pointer hover:text-red-400">
+        <Link to="/">Home</Link>
       </ul>
         <FaHeart className="text-xl cursor-pointer hover:text-red-400" />
         <div className="relative cursor-pointer">

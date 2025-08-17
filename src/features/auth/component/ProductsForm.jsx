@@ -1,28 +1,24 @@
-import React from "react";
+import React from 'react'
+import { products } from '../../post/component/Product'
 
-export const products = [
-  {
-    id: 1,
-    name: "Product A",
-    img: "/images/product-a.jpg",
-    price: "$20",
-  },
-  {
-    id: 2,
-    name: "Product B",
-    img: "/images/product-b.jpg",
-    price: "$30",
-  },
-  {
-    id: 3,
-    name: "Product c",
-    img: "/images/product-a.jpg",
-    price: "$40",
-  },
-  {
-    id: 4,
-    name: "Product D",
-    img: "/images/product-a.jpg",
-    price: "$50"
-  },
-];
+export const ProductsForm = () => {
+  return (
+     <section className="py-8 px-6 md:px-16 bg-[#C8A897]">
+              <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                  {products.map((Products) => (
+                    <div key={products.id} className="bg-white p-4 rounded shadow">
+                      <img
+                        src={Products.img}
+                        alt={products.name}
+                        className="rounded mb-4 w-full h-48 object-cover"
+                      />
+                      <h3 className="font-medium mb-2">{products.name}</h3>
+                      <p className="text-green-700 font-bold">{products.price}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+  )
+}
