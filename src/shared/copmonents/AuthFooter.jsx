@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const AuthFooter = () => {
   return (
@@ -6,9 +7,9 @@ export const AuthFooter = () => {
       <div className="max-w-screen-xl px-4 py-5 mx-auto space-y-4 overflow-hidden sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">
           <div className="px-5 py-2">
-            <a href="#" className="text-base leading-6 text-gray-500 hover:text-gray-900">
+            <Link to="/about" className="text-base leading-6 text-gray-500 hover:text-gray-900">
               About
-            </a>
+            </Link>
           </div>
           <div className="px-5 py-2">
             <a href="#" className="text-base leading-6 text-gray-500 hover:text-gray-900">
@@ -16,9 +17,9 @@ export const AuthFooter = () => {
             </a>
           </div>
           <div className="px-5 py-2">
-            <a href="#" className="text-base leading-6 text-gray-500 hover:text-gray-900">
+            <Link to="/contact" className="text-base leading-6 text-gray-500 hover:text-gray-900">
               Contact
-            </a>
+            </Link>
           </div>
           <div className="px-5 py-2">
             <a href="#" className="text-base leading-6 text-gray-500 hover:text-gray-900">

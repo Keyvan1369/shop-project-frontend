@@ -5,8 +5,8 @@ export const contactService = async (email, subject, message) => {
   try {
     const res = await axios.post("https://www.apirequest.in/user/api/login", {
       email,
-      /* subject,
-      message, */
+      subject,
+      message,
     });
     const data = res.data;
     console.log(data);

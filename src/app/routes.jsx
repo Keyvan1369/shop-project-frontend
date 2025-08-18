@@ -5,14 +5,18 @@ import { LoginPage } from "../features/auth/pages/loginPage";
 import { SignupPage } from "../features/auth/pages/signupPage";
 import { ProductsPage } from "../features/auth/pages/ProductsPage";
 import { ContactPage } from "../features/auth/pages/ContactPage";
+import { AboutPage } from "../features/auth/pages/AboutPage";
+
 
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
-  { path: "/Products", element: <ProductsPage /> },
+  { path: "/products", element: <ProductsPage /> },
   { path: "/contact", element: <ContactPage /> },
+  { path: "/about", element: <AboutPage /> },
+
 
 
 ]);
