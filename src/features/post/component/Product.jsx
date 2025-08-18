@@ -25,4 +25,16 @@ export const products = [
     img: "/images/product-a.jpg",
     price: "$50"
   },
+  {
+    id: 5,
+    name: "Product E",
+    img: "/images/product-a.jpg",
+    price: "$60"
+  },
+  {
+    id: 6,
+    name: "Product F",
+    img: "/images/product-a.jpg",
+    price: "$70"
+  },
 ];
