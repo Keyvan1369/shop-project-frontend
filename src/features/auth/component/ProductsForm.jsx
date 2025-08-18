@@ -1,15 +1,16 @@
 import React from 'react'
-import { products } from '../../post/component/Product'
+import { useProducts } from '../../post/component/Product'
 
 export const ProductsForm = () => {
+   const products = useProducts();
   return (
      <section className="py-8 px-6 md:px-16 bg-[#C8A897]">
               <div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                  {products.map((Products) => (
+                  {products.map((products) => (
                     <div key={products.id} className="bg-white p-4 rounded shadow">
                       <img
-                        src={Products.img}
+                        src={products.img}
                         alt={products.name}
                         className="rounded mb-4 w-full h-48 object-cover"
                       />
