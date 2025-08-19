@@ -13,20 +13,18 @@ export const HomeForm = () => {
           <h3 className="text-green-200 text-lg font-semibold mb-2">
             Discover
           </h3>
-         
+
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Our New Products For You
           </h1>
           <Link to="/products">
             <button className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded text-white flex items-center gap-2">
               Shop Now <FaArrowRight />
-          
             </button>
-               <div className="absolute top-0 right-10 bg-black rounded-full px-6 py-4 text-green-800 font-bold shadow-lg text-center">
-            80 % <br /> Off
-          </div>
+            <div className="absolute top-0 right-10 bg-black rounded-full px-6 py-4 text-green-800 font-bold shadow-lg text-center">
+              80 % <br /> Off
+            </div>
           </Link>
-            
         </div>
         <motion.div
           initial={{ scale: 1.95, opacity: 0 }}
@@ -40,11 +38,9 @@ export const HomeForm = () => {
               <img src={products.img} />
             </div>
           ))}
-          
         </motion.div>
       </section>
 
-      {/* Auto-scrolling Best Selling Products */}
       <section className="py-8 px-6 md:px-16 overflow-hidden">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">Best Selling Products</h2>
@@ -83,9 +79,9 @@ export const HomeForm = () => {
       <section className="py-8 px-6 md:px-16 bg-[#C8A897] overflow-hidden">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold text-white">Top Brands</h2>
-          <button className="text-gray-200 hover:underline">
+          <Link to="/products" className="text-gray-200 hover:underline">
             View All Brands
-          </button>
+          </Link>
         </div>
         <motion.div
           className="flex space-x-6 min-w-max animate-marquee-rtl"
