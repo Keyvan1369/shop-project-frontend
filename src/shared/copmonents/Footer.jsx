@@ -15,7 +15,7 @@ export const Footer = () => {
           </li>
         </ul>
         <span className="text-sm text-gray-600 mt-4 md:mt-0">
-          © 2023 Keyvan Hojabr™.
+          © 2025 Keyvan Hojabr™.
         </span>
       </div>
     </footer>

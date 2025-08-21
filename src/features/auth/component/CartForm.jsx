@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "./CartContext";
 
 export const CartForm = () => {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const { cart, removeFromCart, clearCart, total } = useCart();
 
   return (
     <section className="bg-[#C8A897] py-8 px-6 md:px-16 flex flex-col items-center">
@@ -29,6 +29,9 @@ export const CartForm = () => {
               </button>
             </div>
           ))}
+          <div>
+            Total:{total}
+          </div>
           <button
             onClick={clearCart}
             className="self-center bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded mt-4"

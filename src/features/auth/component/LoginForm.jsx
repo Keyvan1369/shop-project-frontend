@@ -81,6 +81,9 @@ export const LoginForm = () => {
           <ul className="hover:text-red-400 cursor-pointer">
             <Link to="/signup">You don't have an account yet!</Link>
           </ul>
+          <ul className="hover:text-red-400 cursor-pointer">
+          <Link to="" className="">I forgot my password</Link>  {/*  //need to change// */}
+          </ul>
         </div>
       </div>
     </div>

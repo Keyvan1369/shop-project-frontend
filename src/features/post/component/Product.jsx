@@ -54,9 +54,11 @@ export const useProducts = () => {
           id: item.id,
           name: item.title,
           img: item.image,
-          price: `$${item.price}`,
+          price: `${item.price}`,
         }));
         setProducts(formatted);
+        
+        
       })
       .catch((err) => console.error("Failed to fetch products:", err));
   }, []);

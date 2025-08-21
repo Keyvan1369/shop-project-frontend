@@ -22,16 +22,8 @@ export const HomeForm = () => {
               Shop Now <FaArrowRight className="animate-pulse" />
             </button>
           </Link>
-
-          <Link
-            to="/products"
-            className="absolute -top-6 right-6 bg-black rounded-full px-8 py-6 text-green-400 font-bold shadow-xl text-center text-lg leading-tight"
-          >
-            80% <br /> OFF
-          </Link>
         </div>
 
-        
         <motion.div
           initial={{ scale: 1.3, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -46,6 +38,12 @@ export const HomeForm = () => {
               className="rounded-2xl shadow-2xl w-80 h-96 object-cover"
             />
           )}
+          <Link
+            to="/products"
+            className=" absolute -top-3 right-3 bg-black rounded-full px-8 py-5 text-yellow-400 font-bold shadow-xl text-4xl text-center leading-tight"
+          >
+            80% <br /> OFF
+          </Link>
         </motion.div>
       </section>
 

@@ -4,11 +4,11 @@ import { signupService } from "../api/authService";
 export const SignupForm= () => {
   const [email, setemail] = useState("");
   const [password, setepassword] = useState("");
-  const [name, setname] = useState("");
+  const [username, setusername] = useState("");
 
   const formHandeler = (e) => {
     e.preventDefault();
-    signupService(name, email, password);
+    signupService(username, email, password);
   };
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
@@ -26,10 +26,10 @@ export const SignupForm= () => {
               >
                 <div className="relative">
                   <input
-                    onChange={(e) => setname(e.target.value)}
+                    onChange={(e) => setusername(e.target.value)}
                     autoComplete="off"
-                    id="name"
-                    name="name"
+                    id="username"
+                    name="username"
                     type="text"
                     className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
                     placeholder="Email address"
@@ -41,7 +41,7 @@ export const SignupForm= () => {
                                peer-placeholder-shown:top-2 transition-all 
                                peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                   >
-                    Name
+                    user name
                   </label>
                 </div>
 
