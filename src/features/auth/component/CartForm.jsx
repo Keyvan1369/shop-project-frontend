@@ -17,7 +17,7 @@ export const CartForm = () => {
               className="flex justify-between items-center border rounded p-4 shadow-sm bg-white"
             >
               <div className="flex flex-col">
-                <h3 className="font-medium">{item.name}</h3>
+                <h3 className="font-medium">{item.Pname}</h3>
                 <p className="text-gray-500">Quantity: {item.quantity}</p>
               </div>
               <p className="text-green-700 font-bold">${item.price}</p>

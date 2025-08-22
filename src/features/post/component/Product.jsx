@@ -40,10 +40,9 @@ export const products = [
 ];
  */
 
-
 import { useState, useEffect } from "react";
 
-export const useProducts = () => {
+export const fetchProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -52,13 +51,11 @@ export const useProducts = () => {
       .then((data) => {
         const formatted = data.map((item) => ({
           id: item.id,
-          name: item.title,
+          Pname: item.title,
           img: item.image,
           price: `${item.price}`,
         }));
         setProducts(formatted);
-        
-        
       })
       .catch((err) => console.error("Failed to fetch products:", err));
   }, []);

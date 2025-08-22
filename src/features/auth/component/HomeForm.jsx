@@ -1,11 +1,12 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { useProducts } from "../../post/component/Product";
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fetchProducts } from "../../post/component/Product";
 
 export const HomeForm = () => {
-  const products = useProducts();
+  const products = fetchProducts();
 
   return (
     <div className="w-full">

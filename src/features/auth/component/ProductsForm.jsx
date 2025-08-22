@@ -1,9 +1,10 @@
 import React from "react";
-import { useProducts } from "../../post/component/Product";
+
 import { useCart } from "../component/CartContext";
+import { fetchProducts } from "../../post/component/Product";
 
 export const ProductsForm = () => {
-  const products = useProducts();
+  /* const products = fetchProducts(); */
   const { addToCart } = useCart();
 
   return (
@@ -16,14 +17,13 @@ export const ProductsForm = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           {products.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
             >
-              {/* Product Image */}
               <div className="relative w-full h-56 overflow-hidden">
                 <img
                   src={product.img}
-                  alt={product.name}
+                  alt={product.Pname}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 left-3 bg-[#C8A897] text-white text-xs px-3 py-1 rounded-full shadow">
@@ -31,10 +31,10 @@ export const ProductsForm = () => {
                 </span>
               </div>
 
-              {/* Product Info */}
+             
               <div className="p-5 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  {product.name}
+                  {product.Pname}
                 </h3>
                 <p className="text-green-700 font-bold text-xl mb-4">
                   {product.price}
