@@ -2,28 +2,48 @@ import React, { useState } from "react";
 import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCart } from "../../features/auth/component/CartContext";
-import { searchService } from "../../features/auth/api/searchService";
+import { searchService } from "../../features/auth/api/productService";
 
 export const Header = () => {
   const { cart } = useCart();
-  const [search, setSearch] = useState({
-    id: "",
-    Pname: "",
-  });
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const searchHandler = (e) => {
-    e.preventDefault();
-    searchService(search.id, search.Pname);
-  };
+  const [search, setSearch] = useState({ id: "", Pname: "" });
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const getValue = (e) => {
     setSearch({ ...search, [e.target.name]: e.target.value });
   };
 
+  const searchHandler = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setResults([]);
+
+    try {
+      const data = await searchService(search.id, search.Pname);
+
+      if (!data || data.length === 0) {
+        setError("No products found."); // Show message if nothing found
+      } else {
+        setResults(data);
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Search failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <nav className="relative flex items-center justify-between px-4 py-2 bg-lime-600 text-white h-14">
+    <nav className="relative flex items-center justify-between px-4 py-2 bg-lime-600 text-white h-14 shadow-md">
+      {/* Logo & Navigation */}
       <div className="flex items-center gap-6">
-        <div className="font-bold text-xl">online shop</div>
+        <div className="font-bold text-xl">Online Shop</div>
 
         <ul className="hidden md:flex items-center gap-6">
           <li className="hover:text-red-400 cursor-pointer">
@@ -35,6 +55,7 @@ export const Header = () => {
         </ul>
       </div>
 
+      {/* Search Form */}
       <form
         onSubmit={searchHandler}
         className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-none z-10"
@@ -45,24 +66,41 @@ export const Header = () => {
         <div className="flex items-center bg-white rounded-full px-3 shadow pointer-events-auto">
           <FaSearch className="text-gray-500" />
           <input
-            onChange={(e) => getValue(e)}
+            onChange={getValue}
             name="Pname"
             id="site-search-name"
             type="text"
-            placeholder="Search for products"
+            placeholder="Search by name"
             className="bg-transparent outline-none px-2 py-1 w-full text-black"
           />
           <input
-            onChange={(e) => getValue(e)}
+            onChange={getValue}
             name="id"
             id="site-search-id"
             type="text"
-            placeholder="Search for products"
+            placeholder="Search by ID"
             className="bg-transparent outline-none px-2 py-1 w-full text-black"
           />
         </div>
+
+        {/* Search Feedback */}
+        <div className="mt-2 text-black max-h-60 overflow-auto">
+          {loading && <p>Searching products...</p>}
+          {error && <p className="text-red-500">{error}</p>}
+
+          {!loading && results.length > 0 && (
+            <ul className="bg-white shadow rounded p-2">
+              {results.map((item) => (
+                <li key={item._id} className="border-b last:border-b-0 p-1">
+                  {item.Pname} - €{item.price}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </form>
 
+      {/* Right Icons */}
       <div className="flex items-center gap-4">
         <ul className="relative group cursor-pointer hover:text-red-400">
           <Link to="/products">Products</Link>

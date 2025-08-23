@@ -1,15 +1,15 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
-import "./App.css";
 import { CartProvider } from "../features/auth/component/CartContext";
+import { SearchProvider } from "../features/auth/component/SearchContext";
 
 function App() {
   return (
-    <>
-      <CartProvider>
+    <CartProvider>
+      <SearchProvider>
         <RouterProvider router={router} />
-      </CartProvider>
-    </>
+      </SearchProvider>
+    </CartProvider>
   );
 }
 
