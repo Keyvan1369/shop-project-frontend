@@ -3,7 +3,7 @@ import React from "react";
 
 export const contactService = async (email, subject, message) => {
   try {
-    const res = await axios.post("https://www.apirequest.in/user/api/login", {
+    const res = await axios.post("/api/contacts", {
       email,
       subject,
       message,
