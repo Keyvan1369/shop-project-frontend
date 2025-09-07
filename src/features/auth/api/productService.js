@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+
 
 export const searchService = async (id, Pname) => {
   try {
@@ -20,7 +20,7 @@ export const getProductService = async (id, Pname) => {
     const res = await axios.get("/api/products  "     
       ); 
     const data = res.data;
-    console.log(data);
+    
     return data;
   } catch (err) {
     console.error("can't get product from DB:", err.response?.data || err.message);

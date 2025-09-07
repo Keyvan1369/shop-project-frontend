@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { loginService } from "../api/authService";
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,14 @@ export const LoginForm = () => {
   const [email, setemail] = useState("");
   const [password, setepassword] = useState("");
 
-  const formHandeler = (e) => {
+  const formHandeler = async (e) => {
     e.preventDefault();
-    loginService(email, password);
+    const data = await loginService(email, password);
+    localStorage.setItem("token", data.token);
+    localStorage.setItem(
+  "userInfo",
+  JSON.stringify({ username: data.user })
+);
   };
 
   return (
@@ -81,9 +86,12 @@ export const LoginForm = () => {
           <ul className="hover:text-red-400 cursor-pointer">
             <Link to="/signup">You don't have an account yet!</Link>
           </ul>
-          <ul className="hover:text-red-400 cursor-pointer">
-          <Link to="" className="">I forgot my password</Link>  {/*  //need to change// */}
-          </ul>
+         {/*  <ul className="hover:text-red-400 cursor-pointer">
+            <Link to="" className="">
+              I forgot my password
+            </Link>{" "}
+             //need to change//
+          </ul> */}
         </div>
       </div>
     </div>
