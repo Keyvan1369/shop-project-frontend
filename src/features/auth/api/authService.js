@@ -1,38 +1,13 @@
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
-export const loginService = async (email, password,role) => {
-  try {
-    const res = await axios.post("/api/login", {
-      email,
-      password,
-      role
-    });
-    const data = res.data;
-    console.log("res:",data);
-    return data
-     
-  } catch (err) {
-    console.error("Login error:", err.response?.data || err.message);
-    throw err
-  }
+export const loginService = async (email, password, role) => {
+  const res = await axios.post(`${API_URL}/login`, { email, password, role });
+  return res.data;
 };
 
-export const signupService = async (username, email, password,role) => {
-  try {
-    const res = await axios.post("/api/signup", {
-      username,
-      email,
-      password,
-      role
-    });
-    const data = res.data;
-    console.log("res:",data);
-    return data;
-
-   
-  } catch (err) {
-    console.error("Signup error:", err.response?.data || err.message);
-    throw err
-  }
+export const signupService = async (username, email, password, role) => {
+  const res = await axios.post(`${API_URL}/signup`, { username, email, password, role });
+  return res.data;
 };
