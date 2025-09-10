@@ -1,8 +1,7 @@
-import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { HomePage } from "../features/auth/pages/HomePage";
 import { LoginPage } from "../features/auth/pages/LoginPage";
-import { SignupPage } from "../features/auth/pages/signupPage";
+import { SignupPage } from "../features/auth/pages/SignupPage";
 import { ProductsPage } from "../features/auth/pages/ProductsPage";
 import { ContactPage } from "../features/auth/pages/ContactPage";
 import { AboutPage } from "../features/auth/pages/AboutPage";
