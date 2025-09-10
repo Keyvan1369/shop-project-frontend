@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCart } from "../../features/auth/component/CartContext";
@@ -12,6 +12,15 @@ export const Header = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      const parsed = JSON.parse(userInfo);
+      setUsername(parsed.username);
+    }
+  }, []);
 
   const getValue = (e) => {
     setSearch({ ...search, [e.target.name]: e.target.value });
@@ -27,7 +36,7 @@ export const Header = () => {
       const data = await searchService(search.id, search.Pname);
 
       if (!data || data.length === 0) {
-        setError("No products found."); // Show message if nothing found
+        setError("No products found.");
       } else {
         setResults(data);
       }
@@ -41,28 +50,31 @@ export const Header = () => {
 
   return (
     <nav className="relative flex items-center justify-between px-4 py-2 bg-lime-600 text-white h-14 shadow-md">
-      {/* Logo & Navigation */}
       <div className="flex items-center gap-6">
         <div className="font-bold text-xl">Online Shop</div>
 
         <ul className="hidden md:flex items-center gap-6">
-          <li className="hover:text-red-400 cursor-pointer">
-            <Link to="/signup">Signup</Link>
-          </li>
-          <li className="hover:text-red-400 cursor-pointer">
-            <Link to="/login">Login</Link>
-          </li>
+          {!username ? (
+            <>
+              <li className="hover:text-red-400 cursor-pointer">
+                <Link to="/signup">Signup</Link>
+              </li>
+              <li className="hover:text-red-400 cursor-pointer">
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          ) : (
+            <li className="hover:text-red-400 cursor-pointer">
+              Hello, {username.username}!
+            </li>
+          )}
         </ul>
       </div>
 
-      {/* Search Form */}
       <form
         onSubmit={searchHandler}
         className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-none z-10"
       >
-        <label htmlFor="site-search" className="sr-only">
-          Search
-        </label>
         <div className="flex items-center bg-white rounded-full px-3 shadow pointer-events-auto">
           <FaSearch className="text-gray-500" />
           <input
@@ -83,11 +95,9 @@ export const Header = () => {
           />
         </div>
 
-        {/* Search Feedback */}
         <div className="mt-2 text-black max-h-60 overflow-auto">
           {loading && <p>Searching products...</p>}
           {error && <p className="text-red-500">{error}</p>}
-
           {!loading && results.length > 0 && (
             <ul className="bg-white shadow rounded p-2">
               {results.map((item) => (
@@ -100,14 +110,13 @@ export const Header = () => {
         </div>
       </form>
 
-      {/* Right Icons */}
       <div className="flex items-center gap-4">
-        <ul className="relative group cursor-pointer hover:text-red-400">
-          <Link to="/products">Products</Link>
-        </ul>
-        <ul className="relative group cursor-pointer hover:text-red-400">
-          <Link to="/">Home</Link>
-        </ul>
+        <Link to="/products" className="hover:text-red-400">
+          Products
+        </Link>
+        <Link to="/" className="hover:text-red-400">
+          Home
+        </Link>
         <FaHeart className="text-xl cursor-pointer hover:text-red-400" />
 
         <div className="relative cursor-pointer">

@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { loginService } from "../api/authService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 
 export const LoginForm = () => {
   const [email, setemail] = useState("");
   const [password, setepassword] = useState("");
+  const Navigate = useNavigate()
 
   const formHandeler = async (e) => {
     e.preventDefault();
     const data = await loginService(email, password);
     localStorage.setItem("token", data.token);
-    localStorage.setItem(
-  "userInfo",
-  JSON.stringify({ username: data.user })
-);
+    localStorage.setItem("userInfo", JSON.stringify({ username: data.user }));
+    Navigate("/home");
   };
 
   return (
@@ -86,7 +85,7 @@ export const LoginForm = () => {
           <ul className="hover:text-red-400 cursor-pointer">
             <Link to="/signup">You don't have an account yet!</Link>
           </ul>
-         {/*  <ul className="hover:text-red-400 cursor-pointer">
+          {/*  <ul className="hover:text-red-400 cursor-pointer">
             <Link to="" className="">
               I forgot my password
             </Link>{" "}

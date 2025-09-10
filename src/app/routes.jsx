@@ -13,6 +13,7 @@ import { CartPage } from "../features/auth/pages/CartPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
+  { path: "/home", element: <HomePage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
   { path: "/products", element: <ProductsPage /> },
