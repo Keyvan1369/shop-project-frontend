@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCart } from "../../features/auth/component/CartContext";

@@ -1,4 +1,3 @@
-import React from "react";
 import { LoginForm } from "../component/LoginForm";
 import { AuthLayout } from "../../../shared/copmonents/AuthLayout";
 

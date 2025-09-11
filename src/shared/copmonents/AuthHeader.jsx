@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
+
 
 export const AuthHeader = () => {
   return (

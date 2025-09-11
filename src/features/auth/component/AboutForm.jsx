@@ -1,7 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, Heart, Users } from "lucide-react";
-import { div } from "framer-motion/client";
+
 
 export const AboutForm = () => {
   return (

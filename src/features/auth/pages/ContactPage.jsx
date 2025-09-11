@@ -1,4 +1,3 @@
-import React from "react";
 import { ContactForm } from "../component/ContactForm";
 import { HomeLayout } from "../../../shared/copmonents/HomeLayout";
 
