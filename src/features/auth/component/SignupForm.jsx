@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { signupService } from "../api/authService";
+import { useNavigate } from "react-router";
 
-export const SignupForm= () => {
+export const SignupForm = () => {
   const [email, setemail] = useState("");
   const [password, setepassword] = useState("");
   const [username, setusername] = useState("");
+  const navigate = useNavigate();
 
   const formHandeler = (e) => {
     e.preventDefault();
     signupService(username, email, password);
+    navigate("/login")
   };
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
