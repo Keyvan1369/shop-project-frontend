@@ -19,7 +19,7 @@ export const SignupForm = () => {
     localStorage.setItem("userInfo", JSON.stringify({ username: data.user }));
 
     
-    navigate("/home");
+    navigate("/login");
   } catch (error) {
     console.error("Signup failed:", error);
     
