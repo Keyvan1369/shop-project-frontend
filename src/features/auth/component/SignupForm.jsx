@@ -8,11 +8,24 @@ export const SignupForm = () => {
   const [username, setusername] = useState("");
   const navigate = useNavigate();
 
-  const formHandeler = (e) => {
-    e.preventDefault();
-    signupService(username, email, password);
-    navigate("/login")
-  };
+  const formHandeler = async (e) => {
+  e.preventDefault();
+  try {
+   
+    const data = await signupService(username, email, password);
+
+    
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("userInfo", JSON.stringify({ username: data.user }));
+
+    
+    navigate("/home");
+  } catch (error) {
+    console.error("Signup failed:", error);
+    
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
